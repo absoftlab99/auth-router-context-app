@@ -9,12 +9,12 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
 
         signIn(email, password)
         .then((result) =>{
             const user = result.user;
             console.log('successfully sign in', user);
+            form.reset();
         })
         .catch((error) => {
             const errorMessage = error.message;
@@ -30,13 +30,13 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input name='email' type="email" placeholder="email" className="input input-bordered" />
+                    <input name='email' type="email" placeholder="email" className="input input-bordered" required/>
                     </div>
                     <div className="form-control">
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input name='password' type="password" placeholder="password" className="input input-bordered" />
+                    <input name='password' type="password" placeholder="password" className="input input-bordered" required/>
                     <label className="label">
                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>

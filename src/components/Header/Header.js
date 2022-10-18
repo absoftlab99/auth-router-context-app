@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -20,6 +20,9 @@ const Header = () => {
                     <Link to='/register'>Register</Link>
                 </li>
             </ul>
+            <div className="w-10">
+                <img className="rounded-full" src="https://placeimg.com/80/80/people" />
+            </div>
             </div>
         </div>
     </div>          

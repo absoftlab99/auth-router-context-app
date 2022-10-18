@@ -1,9 +1,9 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/UserContext';
 
-
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
+    const {signIn, googleSignin} = useContext(AuthContext);
     const handleSubmit = (event) =>{
         event.preventDefault();
         const form = event.target;
@@ -19,6 +19,16 @@ const Login = () => {
         .catch((error) => {
             const errorMessage = error.message;
             console.log(errorMessage);
+        });
+    }
+    const handleGoogleSignin = (auth) =>{
+        googleSignin()
+        .then((result) => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch((error) => {
+            console.error(error);
         });
     }
     return (
@@ -44,6 +54,7 @@ const Login = () => {
                     <div className="form-control mt-6">
                     <button className="btn btn-primary">Login</button>
                     </div>
+                    <button onClick={handleGoogleSignin}>Sign in with Google</button>
                 </form>
                 </div>
             </div>

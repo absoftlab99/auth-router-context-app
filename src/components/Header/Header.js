@@ -41,9 +41,14 @@ const Header = () => {
                     <li><a>Logout</a></li>
                 </ul>
             </div>
+            <div className="p-2 mr-3">
             {
-                user?.email && <span>{user.email}</span>
+                user?.displayName && <span className="text-left">{user.displayName}</span>
             }
+            {
+                user?.email && <p className="text-sm text-left"><small>{user.email}</small></p>
+            }
+            </div>
             </div>
         </div>
     </div>          

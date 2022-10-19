@@ -26,6 +26,7 @@ const Login = () => {
         .then((result) => {
             const user = result.user;
             console.log(user);
+
         })
         .catch((error) => {
             console.error(error);
@@ -54,8 +55,10 @@ const Login = () => {
                     <div className="form-control mt-6">
                     <button className="btn btn-primary">Login</button>
                     </div>
-                    <button onClick={handleGoogleSignin}>Sign in with Google</button>
                 </form>
+                    <div className="m-0">
+                        <button className='btn btn-ghost' onClick={handleGoogleSignin}>Sign in with Google</button>
+                    </div>
                 </div>
             </div>
         </div>

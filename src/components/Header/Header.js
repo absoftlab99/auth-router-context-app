@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserContext";
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
-    console.log('context', user.photoURL);
+    const {user, logOut} = useContext(AuthContext);
     return (
     <div>
         <div className="navbar bg-base-100">
@@ -38,7 +37,7 @@ const Header = () => {
                     </div>
                 </label>
                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a>Logout</a></li>
+                    <li><a onClick={logOut}>Logout</a></li>
                 </ul>
             </div>
             <div className="p-2 mr-3">
